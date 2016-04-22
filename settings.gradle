@@ -1,0 +1,5 @@
+rootProject.name = 'bell-ea-server'
+
+//include 'ea-uaa'
+include 'ea-api'
+//include 'ea-web'
