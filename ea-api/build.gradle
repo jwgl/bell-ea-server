@@ -5,8 +5,8 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:hibernate5:6.0.0"
-        classpath "org.grails.plugins:views-gradle:1.1.0"
+        classpath "org.grails.plugins:hibernate5:$hibernatePluginVersion"
+        classpath "org.grails.plugins:views-gradle:1.1.2"
     }
 }
 
@@ -50,9 +50,9 @@ dependencies {
     compile "org.grails:grails-logging"
     compile "org.grails.plugins:cache"
     compile "org.grails.plugins:hibernate5"
-    compile "org.hibernate:hibernate-core:5.1.1.Final"
-    compile "org.hibernate:hibernate-ehcache:5.1.1.Final"
-    compile "org.hibernate:hibernate-java8:5.1.1.Final"
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-ehcache:$hibernateVersion"
+    compile "org.hibernate:hibernate-java8:$hibernateVersion"
     compile "org.grails.plugins:views-json"
     compile "org.grails.plugins:views-json-templates"
     console "org.grails:grails-console"
@@ -73,6 +73,14 @@ dependencies {
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"
 }
 
+bootRun {
+    jvmArgs = ['-Dspring.output.ansi.enabled=always']
+}
+
 springBoot {
     executable = true
+}
+
+grails {
+    pathingJar = true
 }
