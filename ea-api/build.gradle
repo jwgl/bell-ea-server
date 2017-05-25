@@ -5,8 +5,8 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:hibernate5:$hibernatePluginVersion"
-        classpath "org.grails.plugins:views-gradle:1.1.5"
+        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath "org.grails.plugins:views-gradle:1.1.6"
     }
 }
 
@@ -22,13 +22,6 @@ apply plugin:"org.grails.plugins.views-json"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.grails:grails-bom:$grailsVersion"
-    }
-    applyMavenExclusions false
 }
 
 dependencies {
@@ -74,10 +67,7 @@ dependencies {
 
 bootRun {
     jvmArgs('-Dspring.output.ansi.enabled=always')
-}
-
-springBoot {
-    executable = true
+    addResources = true
 }
 
 grails {
